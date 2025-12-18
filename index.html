@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,56 +26,39 @@ html, body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+
     opacity: 0;
+    transition: opacity 1.5s ease-in-out;
 }
 
-/* Включаем только ОДНУ картинку за раз */
-.image-container img:nth-child(1) { animation: show1 36s infinite; }
-.image-container img:nth-child(2) { animation: show2 36s infinite; }
-.image-container img:nth-child(3) { animation: show3 36s infinite; }
-.image-container img:nth-child(4) { animation: show4 36s infinite; }
-.image-container img:nth-child(5) { animation: show5 36s infinite; }
-.image-container img:nth-child(6) { animation: show6 36s infinite; }
-
-@keyframes show1 {
-    0%, 16.66% { opacity: 1; }
-    16.67%, 100% { opacity: 0; }
-}
-@keyframes show2 {
-    0%, 16.66% { opacity: 0; }
-    16.67%, 33.33% { opacity: 1; }
-    33.34%, 100% { opacity: 0; }
-}
-@keyframes show3 {
-    0%, 33.33% { opacity: 0; }
-    33.34%, 50% { opacity: 1; }
-    50.01%, 100% { opacity: 0; }
-}
-@keyframes show4 {
-    0%, 50% { opacity: 0; }
-    50.01%, 66.66% { opacity: 1; }
-    66.67%, 100% { opacity: 0; }
-}
-@keyframes show5 {
-    0%, 66.66% { opacity: 0; }
-    66.67%, 83.33% { opacity: 1; }
-    83.34%, 100% { opacity: 0; }
-}
-@keyframes show6 {
-    0%, 83.33% { opacity: 0; }
-    83.34%, 100% { opacity: 1; }
+.image-container img.active {
+    opacity: 1;
 }
 </style>
 </head>
 
 <body>
+
 <div class="image-container">
-    <img src="zoir1.png">
+    <img src="zoir1.png" class="active">
     <img src="zoir2.png">
     <img src="zoir3.png">
     <img src="zoir4.png">
     <img src="zoir5.png">
     <img src="zoir6.png">
 </div>
+
+<script>
+const images = document.querySelectorAll('.image-container img');
+let current = 0;
+const delay = 6000; // 6 секунд на картинку
+
+setInterval(() => {
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+}, delay);
+</script>
+
 </body>
 </html>
