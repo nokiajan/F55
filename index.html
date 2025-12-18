@@ -1,62 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F55</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000; /* Black background for contrast */
-            height: 100vh;
-        }
-        .image-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .image-container img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensure the whole image is visible */
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .image-container img:nth-child(1) { animation: fade 40s infinite 0s; }
-        .image-container img:nth-child(2) { animation: fade 40s infinite 10s; }
-        .image-container img:nth-child(3) { animation: fade 40s infinite 20s; }
-        .image-container img:nth-child(4) { animation: fade 40s infinite 30s; }
-		.image-container img:nth-child(5) { animation: fade 50s infinite 40s; }
-		.image-container img:nth-child(6) { animation: fade 60s infinite 50s; }
-		/*.image-container img:nth-child(7) { animation: fade 70s infinite 60s; }
-		.image-container img:nth-child(8) { animation: fade 80s infinite 70s; }*/
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F55</title>
 
-        @keyframes fade {
-            0%, 25% { opacity: 1; }
-            30%, 100% { opacity: 0; }
-        }
-    </style>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+}
+
+.image-container {
+    position: fixed;
+    inset: 0;
+}
+
+.image-container img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation: fade 36s infinite;
+}
+
+/* Задержки для каждого изображения */
+.image-container img:nth-child(1) { animation-delay: 0s; }
+.image-container img:nth-child(2) { animation-delay: 6s; }
+.image-container img:nth-child(3) { animation-delay: 12s; }
+.image-container img:nth-child(4) { animation-delay: 18s; }
+.image-container img:nth-child(5) { animation-delay: 24s; }
+.image-container img:nth-child(6) { animation-delay: 30s; }
+
+@keyframes fade {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    25%  { opacity: 1; }
+    35%  { opacity: 0; }
+    100% { opacity: 0; }
+}
+</style>
 </head>
+
 <body>
-    <div class="image-container">
-        <img src="zoir1.png" alt="Image 1">
-        <img src="zoir2.png" alt="Image 2">
-        <img src="zoir3.png" alt="Image 3">
-        <img src="zoir4.png" alt="Image 4">
-		<img src="zoir5.png" alt="Image 5">	
-		<img src="zoir6.png" alt="Image 6">
-    </div>
+
+<div class="image-container">
+    <img src="zoir1.png" alt="Image 1">
+    <img src="zoir2.png" alt="Image 2">
+    <img src="zoir3.png" alt="Image 3">
+    <img src="zoir4.png" alt="Image 4">
+    <img src="zoir5.png" alt="Image 5">
+    <img src="zoir6.png" alt="Image 6">
+</div>
+
 </body>
 </html>
-
