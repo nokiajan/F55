@@ -8,7 +8,6 @@
 <style>
 html, body {
     margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     background: black;
@@ -28,37 +27,55 @@ html, body {
     max-height: 100%;
     object-fit: contain;
     opacity: 0;
-    animation: fade 36s infinite;
 }
 
-/* Задержки для каждого изображения */
-.image-container img:nth-child(1) { animation-delay: 0s; }
-.image-container img:nth-child(2) { animation-delay: 6s; }
-.image-container img:nth-child(3) { animation-delay: 12s; }
-.image-container img:nth-child(4) { animation-delay: 18s; }
-.image-container img:nth-child(5) { animation-delay: 24s; }
-.image-container img:nth-child(6) { animation-delay: 30s; }
+/* Включаем только ОДНУ картинку за раз */
+.image-container img:nth-child(1) { animation: show1 36s infinite; }
+.image-container img:nth-child(2) { animation: show2 36s infinite; }
+.image-container img:nth-child(3) { animation: show3 36s infinite; }
+.image-container img:nth-child(4) { animation: show4 36s infinite; }
+.image-container img:nth-child(5) { animation: show5 36s infinite; }
+.image-container img:nth-child(6) { animation: show6 36s infinite; }
 
-@keyframes fade {
-    0%   { opacity: 0; }
-    10%  { opacity: 1; }
-    25%  { opacity: 1; }
-    35%  { opacity: 0; }
-    100% { opacity: 0; }
+@keyframes show1 {
+    0%, 16.66% { opacity: 1; }
+    16.67%, 100% { opacity: 0; }
+}
+@keyframes show2 {
+    0%, 16.66% { opacity: 0; }
+    16.67%, 33.33% { opacity: 1; }
+    33.34%, 100% { opacity: 0; }
+}
+@keyframes show3 {
+    0%, 33.33% { opacity: 0; }
+    33.34%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+@keyframes show4 {
+    0%, 50% { opacity: 0; }
+    50.01%, 66.66% { opacity: 1; }
+    66.67%, 100% { opacity: 0; }
+}
+@keyframes show5 {
+    0%, 66.66% { opacity: 0; }
+    66.67%, 83.33% { opacity: 1; }
+    83.34%, 100% { opacity: 0; }
+}
+@keyframes show6 {
+    0%, 83.33% { opacity: 0; }
+    83.34%, 100% { opacity: 1; }
 }
 </style>
 </head>
 
 <body>
-
 <div class="image-container">
-    <img src="zoir1.png" alt="Image 1">
-    <img src="zoir2.png" alt="Image 2">
-    <img src="zoir3.png" alt="Image 3">
-    <img src="zoir4.png" alt="Image 4">
-    <img src="zoir5.png" alt="Image 5">
-    <img src="zoir6.png" alt="Image 6">
+    <img src="zoir1.png">
+    <img src="zoir2.png">
+    <img src="zoir3.png">
+    <img src="zoir4.png">
+    <img src="zoir5.png">
+    <img src="zoir6.png">
 </div>
-
 </body>
 </html>
